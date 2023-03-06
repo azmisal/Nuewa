@@ -2,6 +2,23 @@ import React from "react";
 import './Download.css';
 
 const Download = () => {
+	function reveal() {
+		var reveals = document.querySelectorAll(".reveal");
+	  
+		for (var i = 0; i < reveals.length; i++) {
+		  var windowHeight = window.innerHeight;
+		  var elementTop = reveals[i].getBoundingClientRect().top;
+		  var elementVisible = 150;
+	  
+		  if (elementTop < windowHeight - elementVisible) {
+			reveals[i].classList.add("active");
+		  } else {
+			reveals[i].classList.remove("active");
+		  }
+		}
+	  }
+	  
+	  window.addEventListener("scroll", reveal);
 
 	// Function will execute on click of button
 	const onButtonClick = () => {
@@ -37,18 +54,18 @@ const Download = () => {
 			<center id="schedule">
                 <div className="group">
 				
-                <button onClick={onButtonClick} className="c1">
+                <button onClick={onButtonClick} className="c1 reveal">
                 Inaugural Ceremony Schedule
 				</button>
-                <button onClick={onBut} className="c1">
+                <button onClick={onBut} className="c1 reveal">
                 Program Details
 				</button>
         
                 
-                <button onClick={onButtonClick} className="c1">
+                <button onClick={onButtonClick} className="c1 reveal">
                 Events Schedule
 				</button>
-                <button onClick={onButtonClick} className="c1">
+                <button onClick={onButtonClick} className="c1 reveal">
                 Closing Ceremony Schedule
 				</button>
                 </div>

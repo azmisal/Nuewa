@@ -5,9 +5,25 @@ import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
     const style = {  width:'4vw',height:'4vw',fill:"aqua"}
+    function reveal() {
+		var reveals = document.querySelectorAll(".reveal");
+	  
+		for (var i = 0; i < reveals.length; i++) {
+		  var windowHeight = window.innerHeight;
+		  var elementTop = reveals[i].getBoundingClientRect().top;
+		  var elementVisible = 150;
+	  
+		  if (elementTop < windowHeight - elementVisible) {
+			reveals[i].classList.add("active");
+		  } else {
+			reveals[i].classList.remove("active");
+		  }
+		}
+	  }
+	  
+	  window.addEventListener("scroll", reveal);
 
-
-    return ( <div className="footer">
+    return ( <div className="footer reveal">
         <div className="left">
     <div className="left_up">
         <h1 className="quicklink">QUICK LINKS</h1>

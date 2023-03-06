@@ -19,7 +19,7 @@ let Scrollanimation = () => {
         );
       })} */
   return (
-    <div class="marquee_container">
+    <div class="marquee_container reveal">
       <div class="marquee primary">
         {nueva_count > 0 &&
           Array(nueva_count)

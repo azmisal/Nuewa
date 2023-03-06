@@ -20,10 +20,8 @@ export default function Vid() {
   }
   
   window.addEventListener("scroll", reveal);
-  
   return (
     <div className="Vid">
-      <section>
         <div className="highlight1 reveal">
     
         <Vid3 className='robo'/>
@@ -37,8 +35,6 @@ Join us to experience the excitement and adrenaline rush of Robowar!</p>
         
         
         </div>
-        </section>
-        <section>
         <div className="highlight2 reveal">
         <Vid3 className='robo'/>
         <div className="roh2"><h1>LAZERMAZE</h1>
@@ -47,7 +43,6 @@ Navigate through a maze of laser beams and avoid getting hit to emerge as the ch
 Join us for a rousing event filled with excitement and adventure!</p>
        </div>
         </div>
-        </section>
      
            </div>
   )

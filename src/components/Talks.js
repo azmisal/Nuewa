@@ -3,9 +3,19 @@ import './Workshop.css'
 import elektra from '../Assets/elektra.jpeg'
 import docbg from '../Assets/doc-bg.png'
 import { AiOutlineClose } from "react-icons/ai";
-
-const Event = () => {
-
+import wave from '../Assets/wavy.jpg'
+const Talks = () => {
+        const [item1,setItem1] = useState(null);
+        const [item2,setItem2] = useState(null);
+        const [item3,setItem3] = useState(null);
+    
+    
+    
+        const handleItem = (item1,item2,item3) =>{
+            setItem1(item1);
+            setItem2(item2);
+            setItem3(item3);
+        }
     let content = [
         {
             image: elektra,
@@ -24,12 +34,12 @@ const Event = () => {
             learn: "http://iste.gectcr.ac.in/"
         },
         {
-            image: elektra,
-            title: "INFINOIA",
+            image: wave,
+            title: "Wavy",
             date: "31/10/2001",
             link: "www.google.com",
             cost: "RS 499/-",
-            learn: "http://iste.gectcr.ac.in/"
+            learn: "adacjdbaflcja ljvh akfh;bv;kahfvk; abksvkwdbvkhbfsvkbefksv fhsbvkdsjbvdsbvbvsckb dkhzxb hsdab z xcjhabdkjc zxkhb xhjbchcvbadshvadbk"
         },
         {
             image: elektra,
@@ -51,24 +61,28 @@ const Event = () => {
     const [showDiv, setShowDiv] = useState(false);
 
     const handleOpen = () => {
-        setShowDiv(true);
-        console.log(showDiv)
-        document.body.style.overflowY = showDiv ? "auto" : "hidden";
-        document.getElementById("nav").style.display = showDiv ? "flex" : "none";
-    };
-    const handleClose = () => {
-        setShowDiv(false);
-        document.body.style.overflowY = showDiv ? "auto" : "hidden";
-        document.getElementById("nav").style.display = showDiv ? "flex" : "none";
+        setShowDiv(!showDiv);
+        console.log("clicked");
+    }
+    const iconStyle={
+        color:'white',
+        fontSize:'3vw',
+        right:'13vw',
+        height:'3vw',
+        width:'5vw',
+        top:'12vw',
+        position: 'absolute',
+        cursor:'pointer'
+
     }
 
     return (
 
         <div className="event">
             <div className="sheet" id="card3">
-                <h1 style={{ color: 'rgb(240 96 0)', fontSize: '6vw', fontFamily: 'Chakra Petch' }}>Talks</h1>
+            <div className="workhead" ><h1 style={{ color: 'rgb(240 96 0)', fontSize: '6vw', fontFamily: 'Chakra Petch' }}>Talks</h1></div>
 
-                <div className="innersheet">
+                <div className="innersheet" id="card1">
 
                     {content.map((element, ctx) => (
                         <>
@@ -78,30 +92,30 @@ const Event = () => {
                             <h2 className="head3">{element.cost}</h2>
                             <div className="comb"><div className="reg1">
                                 <div className="reg2"><p>Register</p></div>
-                            </div> <button onClick={handleOpen}>LEARN MORE</button>
+                            </div>
+                            <button onClick={()=>{handleOpen();handleItem(element.image,element.title,element.learn); }}>LEARN MORE</button>
                                 </div>
                             </div>
-                            {showDiv && <div className='cardDoc'>
-
-                                <div className='cardDocIn'>
-                                    <div className='docImg'>
-                                        <img src={docbg} alt=""></img>
-                                    </div>
-                                    <div className='docContent'>
-                                        <button onClick={handleClose}><AiOutlineClose size={40}/></button>
-                                        <h1>KRANTHI{"\n"}</h1>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                                    </div>
-                                </div>
-                            </div>}
+                            
                         </>
                     ))}
+                    <div className={`pop ${showDiv ? "popCard" : "nobut"}`} onClick={handleOpen}>
+                        <div className="wholeCont"><div className="goleft">
+                            <img src={item1} alt="" />
+                        </div>
+                        <div className="goright">
+                            <AiOutlineClose  style={iconStyle}onClick={handleOpen}/>
+                            <h1>{item2}</h1>
+                            <p>{item3}</p>
+                        </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
         </div>
 
     );
-}
 
-export default Event;
+}
+export default Talks;

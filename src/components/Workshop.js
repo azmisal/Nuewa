@@ -3,9 +3,21 @@ import './Workshop.css'
 import elektra from '../Assets/elektra.jpeg'
 import docbg from '../Assets/doc-bg.png'
 import { AiOutlineClose } from "react-icons/ai";
-import event from "../Assets/elektra.jpeg"
+import event from "../Assets/elektra.jpeg";
+import wave from '../Assets/wavy.jpg';
 
-const Event = () => {
+const Workshop = () => {
+    const [item1,setItem1] = useState(null);
+    const [item2,setItem2] = useState(null);
+    const [item3,setItem3] = useState(null);
+
+
+
+    const handleItem = (item1,item2,item3) =>{
+        setItem1(item1);
+        setItem2(item2);
+        setItem3(item3);
+    }
 
     let content = [
         {
@@ -17,12 +29,12 @@ const Event = () => {
             learn: "http://iste.gectcr.ac.in/"
         },
         {
-            image: elektra,
-            title: "ELEKTRA",
+            image: wave,
+            title: "Wavy",
             date: "31/10/2001",
             link: "www.google.com",
             cost: "RS 499/-",
-            learn: "http://iste.gectcr.ac.in/"
+            learn: "adacjdbaflcja ljvh akfh;bv;kahfvk; abksvkwdbvkhbfsvkbefksv fhsbvkdsjbvdsbvbvsckb dkhzxb hsdab z xcjhabdkjc zxkhb xhjbchcvbadshvadbk"
         },
         {
             image: elektra,
@@ -52,16 +64,21 @@ const Event = () => {
     const [showDiv, setShowDiv] = useState(false);
 
     const handleOpen = () => {
-        setShowDiv(true);
-        console.log(showDiv)
-        document.body.style.overflowY = showDiv ? "auto" : "hidden";
-        document.getElementById("nav").style.display = showDiv ? "flex" : "none";
-    };
-    const handleClose = () => {
-        setShowDiv(false);
-        document.body.style.overflowY = showDiv ? "auto" : "hidden";
-        document.getElementById("nav").style.display = showDiv ? "flex" : "none";
+        setShowDiv(!showDiv);
+        console.log("clicked");
     }
+    const iconStyle={
+        color:'white',
+        fontSize:'3vw',
+        right:'13vw',
+        height:'3vw',
+        width:'5vw',
+        top:'12vw',
+        position: 'absolute',
+        cursor:'pointer'
+
+    }
+    
     return (
 
         <div className="event" >
@@ -86,29 +103,24 @@ const Event = () => {
                                         <p>Register</p>
                                     </div>
                                 </div>
-                                <button onClick={handleOpen}>LEARN MORE</button>
+                                <button onClick={()=>{handleOpen();handleItem(element.image,element.title,element.learn); }}>LEARN MORE</button>
                             </div>
                         </div>
-                        {showDiv && <div className='cardDoc'>
-                        <button className='btn' onClick={handleClose}><AiOutlineClose size={40}/></button>
-                            <div className="cardContain">
-                            
-                                <div className="front">
-                                    <img src={event} alt=""></img>
-                                </div>
-                                <div className='back'>
-                                    <div className='docImg'>
-                                        <img src={docbg} alt=""></img>
-                                    </div>
-                                    <div className='docContent'>
-                                        <h1>KRANTHI{"\n"}</h1>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>}
+                        
+                        
                         </>
                     ))}
+                    <div className={`pop ${showDiv ? "popCard" : "nobut"} active`} onClick={handleOpen}>
+                        <div className="wholeCont"><div className="goleft">
+                            <img src={item1} alt="" />
+                        </div>
+                        <div className="goright">
+                            <AiOutlineClose  style={iconStyle}onClick={handleOpen}/>
+                            <h1>{item2}</h1>
+                            <p>{item3}</p>
+                        </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -117,4 +129,4 @@ const Event = () => {
     );
 }
 
-export default Event;
+export default Workshop;

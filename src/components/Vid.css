@@ -44,19 +44,8 @@
     width: 100vw;
     height: 35vw;
     display: flex;
+    margin-left: 2vw;
+
     flex-direction: row-reverse;
 }
 
-
-.reveal{
-    position: relative;
-    transform: translateY(100px);
-    opacity: 0;
-    transition: 1s all ease;
-  }
-  
-  .reveal.active{
-    transform: translateY(0);
-    opacity: 1;
-  }
-  

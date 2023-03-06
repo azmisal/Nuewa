@@ -21,23 +21,7 @@ function App() {
         spinner.style.display='none';
         setloading(false);
    },1000)
- }function reveal() {
-  var reveals = document.querySelectorAll(".reveal");
-
-  for (var i = 0; i < reveals.length; i++) {
-    var windowHeight = window.innerHeight;
-    var elementTop = reveals[i].getBoundingClientRect().top;
-    var elementVisible = 150;
-
-    if (elementTop < windowHeight - elementVisible) {
-      reveals[i].classList.add("active");
-    } else {
-      reveals[i].classList.remove("active");
-    }
-  }
-}
-
-window.addEventListener("scroll", reveal);
+ }
 
   return (
      !loading &&
@@ -48,41 +32,23 @@ window.addEventListener("scroll", reveal);
               
                  <Navbar />
                 <Hover />
-                <section>
-                  <div className="cont reveal">
+               
                 <About />
-                </div>
-                </section>
-                <section>
-                <div className="cont reveal">
+             
+                
+                
                 <Gevents/>
-                </div>
-                </section>
-                <section>
-                <div className="cont reveal">
+                
                 <Vid1 />
-                </div>
-                </section>
-                <section>
-                <div className="cont reveal">
+           
                 <Download />
-                </div>
-                </section>
-                <section>
-                <div className="cont reveal">
+               
                 <Vid2 />
-                </div>
-                </section>
-                <section>
-                <div className="cont reveal">
+              
                 <Scrollanimation />
-                </div>
-                </section>
-                <section>
-                <div className="cont reveal">
+                
                 <Footer />
-                </div>
-                </section>
+               
              
               
             
